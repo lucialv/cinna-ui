@@ -1,0 +1,178 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+Add additional Tailwind styles to this file, for example with @layer:
+https://tailwindcss.com/docs/adding-custom-styles#using-css-and-layer
+*/
+
+:is([data-theme="dark"] body) {
+  --sl-color-text-accent: var(--sl-color-accent) !important;
+  --sl-color-text-invert: var(--sl-color-white) !important;
+}
+
+:is([data-theme="dark"] .sl-markdown-content a:not(:where(.not-content *))) {
+  --sl-color-text-accent: #e879f9 !important;
+}
+
+header.header {
+  border-bottom: 1px solid var(--sl-color-gray-5);
+  @apply h-14 bg-[var(--sl-color-bg)];
+}
+
+@media (min-width: 50rem) {
+  site-search {
+    @apply inline w-64;
+  }
+
+  site-search > button {
+    @apply !h-8 !border-none !bg-neutral-100 !pe-2.5 !ps-2.5 !text-black hover:!bg-neutral-200 dark:!bg-neutral-800 dark:!text-white dark:hover:!bg-neutral-700/80;
+  }
+}
+
+.site-title:hover {
+  @apply opacity-75;
+}
+
+.sidebar-pane {
+  background-color: var(--sl-color-bg);
+  border-right: 1px solid var(--sl-color-gray-6);
+}
+
+.sidebar-content ul li {
+  margin-top: 0;
+}
+
+.sidebar-content ul li details summary {
+  border-radius: 0.25rem;
+}
+
+.sidebar-content ul li details summary:hover,
+.sidebar-content ul li a:not([aria-current="page"]):hover,
+.sidebar-content ul li details ul li a:not([aria-current="page"]):hover,
+.right-sidebar a:not([aria-current="true"]):hover {
+  background-color: rgb(217 70 239 / 0.2);
+}
+
+.social-icons a {
+  @apply text-black dark:text-white;
+}
+
+.large {
+  @apply tracking-tight;
+}
+
+[data-has-hero] .large {
+  @apply tracking-tighter;
+}
+
+:root {
+  --overlay-blurple: rgb(232 121 249 / 0.2);
+}
+
+[data-has-hero] .page {
+  background: linear-gradient(215deg, var(--overlay-blurple), transparent 40%),
+    radial-gradient(var(--overlay-blurple), transparent 40%) no-repeat -60vw -40vh /
+      105vw 200vh,
+    radial-gradient(var(--overlay-blurple), transparent 65%) no-repeat 50%
+      calc(100% + 20rem) / 60rem 30rem;
+}
+
+[data-has-hero] header {
+  border-bottom: 1px solid transparent;
+  background-color: transparent !important;
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+}
+
+[data-has-hero] .hero > img {
+  filter: drop-shadow(0 0 3rem var(--overlay-blurple));
+}
+
+[data-has-hero] .card {
+  border-radius: 12px;
+  position: relative;
+  background: radial-gradient(
+      300px circle at top left,
+      rgba(232, 121, 249, 0.081) 20%,
+      transparent 100%
+    ),
+    radial-gradient(
+      300px circle at bottom right,
+      rgba(232, 121, 249, 0.081) 20%,
+      transparent 100%
+    );
+}
+
+[data-has-hero] .card::before {
+  content: "";
+  position: absolute;
+  inset: 0px;
+  border-radius: inherit;
+  transition: opacity 400ms ease 0s;
+  will-change: background, opacity;
+  background: radial-gradient(
+    800px circle at var(--mouse-x) var(--mouse-y),
+    rgba(232, 121, 249, 0.15),
+    transparent 40%
+  );
+  opacity: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+[data-has-hero] .card:hover::before {
+  opacity: 1;
+}
+
+.action.primary {
+  @apply border border-accent-700 bg-accent-400/50 text-black hover:bg-accent-500/50 dark:border-accent-500 dark:bg-accent-950 dark:text-white dark:hover:bg-accent-900/80;
+}
+
+.hero > img {
+  animation: vert-move 3s ease-in-out infinite;
+  @apply rounded-xl;
+}
+
+@keyframes vert-move {
+  0% {
+    transform: translateY(-5px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(-5px);
+  }
+}
+
+h1 {
+  @apply font-bold tracking-tighter;
+}
+
+h2 {
+  @apply tracking-tight;
+}
+
+.card .title {
+  @apply tracking-tighter;
+}
+
+.heading-link::after {
+  content: "#";
+  padding-inline-start: 0.25em;
+  opacity: 0;
+  transition: all 0.3;
+}
+
+.heading-link:hover::after {
+  color: var(--sl-color-text-accent);
+  transition: all 0.3;
+  opacity: 1;
+}
+
+.heading-link {
+  text-decoration: none;
+  color: var(--sl-color-white) !important;
+}

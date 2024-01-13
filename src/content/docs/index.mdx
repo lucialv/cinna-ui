@@ -1,0 +1,53 @@
+---
+title: Cinna UI, the best UI library for Astro
+template: splash
+editUrl: false
+lastUpdated: false
+hero:
+  title: |
+    Meet the only 
+    <span
+      class="text-transparent
+        bg-clip-text bg-gradient-to-b
+        from-accent-500 to-accent-800"
+    >
+      UI library 
+    </span> you need.
+  tagline: Do you need to build a website fast? Cinna UI is the only UI library you need, just copy and paste the code!
+  image:
+    file: ../../assets/sakura.png
+  actions:
+    - text: Get started
+      link: /getting-started/introduction
+      icon: right-arrow
+      variant: primary
+---
+
+import { Card, CardGrid } from "@astrojs/starlight/components";
+import CardMouseMoveScript from "../../components/CardMouseMoveScript";
+
+<CardGrid stagger>
+  <Card title="Build faster than ever!" icon="rocket">
+    With Cinna UI, you can build websites faster than ever before. Just copy and
+    paste the code, and you're done! No more spending hours on end trying to get
+    the perfect design.
+  </Card>
+  <Card title="Keep your members engaged" icon="approve-check">
+    With Cinna UI, you can keep your members engaged with your website. With
+    Cinna UI, you can build a website that your members will love, and keep them
+    coming back for more.
+  </Card>
+  <Card title="Don't need to pay, it's free!" icon="star">
+    Cinna UI is completely free to use, and always will be. We don't believe in
+    charging for our product, because we want to make it as easy as possible for
+    you to build a website.
+  </Card>
+  <Card title="We're open source" icon="github">
+    Cinna UI is open source, so you can contribute to the project if you want.
+    We're always looking for new contributors, so if you want to help out, just
+    let us know! We'd love to have you on board. Code is available on [Github
+    Repository]()
+  </Card>
+</CardGrid>
+
+<CardMouseMoveScript client:only />
