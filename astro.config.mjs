@@ -14,6 +14,7 @@ export default defineConfig({
   integrations: [
     starlight({
       title: "Cinna UI",
+      description: "The best UI library.",
       logo: {
         src: "./src/assets/sakura.png",
         replacesTitle: false,
