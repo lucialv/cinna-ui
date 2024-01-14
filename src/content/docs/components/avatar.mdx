@@ -1,0 +1,29 @@
+---
+title: Avatar
+description: Avatar component for Cinna UI.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components";
+
+## Simple Avatar
+
+Use this example to create a circle and rounded avatar on an image element.
+
+<Tabs>
+  <TabItem label="Result">
+    <div class="not-content flex items-center justify-center space-x-4">
+      <img
+        class="w-10 h-10 rounded-full"
+        src="/image.webp"
+        alt="Rounded avatar"
+      />
+      <img class="w-10 h-10 rounded " src="/image.webp" alt="Default avatar" />
+    </div>
+  </TabItem>
+  <TabItem label="Code">
+    ```html
+    <img class="w-10 h-10 rounded-full" src="image.jpg" alt="Rounded avatar" />
+    <img class="w-10 h-10 rounded" src="image.jpg" alt="Default avatar" />
+    ```
+  </TabItem>
+</Tabs>

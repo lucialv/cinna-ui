@@ -1,20 +1,27 @@
+import fs from "node:fs";
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 import tailwind from "@astrojs/tailwind";
+import { ExpressiveCodeTheme } from "@astrojs/starlight/expressive-code";
 
 import react from "@astrojs/react";
 
+const jsonString = fs.readFileSync(
+  new URL(`src/assets/tailwind-dark.json`, import.meta.url),
+  "utf-8"
+);
+const myTheme = ExpressiveCodeTheme.fromJSONString(jsonString);
+
 // https://astro.build/config
 export default defineConfig({
-  markdown: {
-    shikiConfig: {
-      theme: "monokai",
-    },
-  },
   integrations: [
     starlight({
       title: "Cinna UI",
       description: "The best UI library.",
+      expressiveCode: {
+        styleOverrides: { borderRadius: "0.5rem" },
+        themes: [myTheme],
+      },
       logo: {
         src: "./src/assets/sakura.png",
         replacesTitle: false,
